@@ -1,0 +1,24 @@
+{{define "title"}}Home{{end}} {{define "main"}}
+<h2>Latest Snippets</h2>
+{{if .Snippets}}
+<!-- check if snippets exists or not -->
+<table>
+  <tr>
+    <td>title</td>
+    <td>created</td>
+    <td>id</td>
+  </tr>
+
+  {{range .Snippets}}
+  <!-- starting a snippets loop -->
+  <tr>
+    <td><a href="/snippets/view/{{.ID}}">{{.Title}}</a></td>
+    <td>{{humanDate .Created}}</td>
+    <td>#{{.ID}}</td>
+  </tr>
+  {{end}}
+  <!-- end of the snippets loop -->
+</table>
+{{else}}
+<p>There's nothing to see here yet!</p>
+{{end}} {{end}}
